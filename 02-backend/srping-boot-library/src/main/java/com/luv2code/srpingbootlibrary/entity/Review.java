@@ -25,9 +25,9 @@ public class Review {
 	@Column(name = "user_email")
 	private String userEmail;
 
-	@Column(name = "date")
+	@Column(name = "date_review")
 	@CreationTimestamp
-	private Date date;
+	private Date dateReview;
 
 	@Column(name = "rating")
 	private double rating;
@@ -54,12 +54,12 @@ public class Review {
 		this.userEmail = userEmail;
 	}
 
-	public Date getDate() {
-		return date;
+	public Date getDateReview() {
+		return dateReview;
 	}
 
-	public void setDate(Date date) {
-		this.date = date;
+	public void setDate(Date dateReview) {
+		this.dateReview = dateReview;
 	}
 
 	public double getRating() {
@@ -86,11 +86,11 @@ public class Review {
 		this.reviewDescription = reviewDescription;
 	}
 
-	public Review(Long id, String userEmail, Date date, double rating, Long bookId, String reviewDescription) {
+	public Review(Long id, String userEmail, Date dateReview, double rating, Long bookId, String reviewDescription) {
 		super();
 		this.id = id;
 		this.userEmail = userEmail;
-		this.date = date;
+		this.dateReview = dateReview;
 		this.rating = rating;
 		this.bookId = bookId;
 		this.reviewDescription = reviewDescription;
