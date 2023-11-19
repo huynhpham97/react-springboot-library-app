@@ -5,6 +5,7 @@ import { CheckoutAndReviewBox } from "./CheckoutAndReviewBox";
 import ReviewModel from "../../models/ReviewModel";
 import { error } from "console";
 import { LatestReviews } from "./LastestReviews";
+import { SpinnerLoading } from "../Utils/SpinnerLoading";
 
 export const BookCheckoutPage = () => {
 
@@ -100,7 +101,7 @@ export const BookCheckoutPage = () => {
     if (isLoading || isLoadingReview) {
         return (
             <div className="container m-5">
-                <p>Loading...</p>
+                <SpinnerLoading />
             </div>
         )
     }
