@@ -1,6 +1,7 @@
 package com.luv2code.srpingbootlibrary.config;
 
 import com.luv2code.srpingbootlibrary.entity.Book;
+import com.luv2code.srpingbootlibrary.entity.Checkout;
 import com.luv2code.srpingbootlibrary.entity.Message;
 import com.luv2code.srpingbootlibrary.entity.Review;
 import org.springframework.context.annotation.Configuration;
@@ -21,10 +22,12 @@ public class MyDataRestConfig implements RepositoryRestConfigurer {
 		config.exposeIdsFor(Book.class);
 		config.exposeIdsFor(Review.class);
 		config.exposeIdsFor(Message.class);
+//		config.exposeIdsFor(Checkout.class);
 
 		disableHttpMethods(Book.class, config, theUnsupportedActions);
 		disableHttpMethods(Review.class, config, theUnsupportedActions);
 		disableHttpMethods(Message.class, config, theUnsupportedActions);
+//		disableHttpMethods(Checkout.class, config, theUnsupportedActions);
 
 		/* Configure CORS Mapping */
 		cors.addMapping(config.getBasePath() + "/**").allowedOrigins(theAllowedOrigins);
