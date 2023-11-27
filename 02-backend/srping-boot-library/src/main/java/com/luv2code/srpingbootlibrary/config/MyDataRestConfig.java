@@ -1,7 +1,6 @@
 package com.luv2code.srpingbootlibrary.config;
 
 import com.luv2code.srpingbootlibrary.entity.Book;
-import com.luv2code.srpingbootlibrary.entity.Checkout;
 import com.luv2code.srpingbootlibrary.entity.Message;
 import com.luv2code.srpingbootlibrary.entity.Review;
 import org.springframework.context.annotation.Configuration;
@@ -13,21 +12,22 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry;
 @Configuration
 public class MyDataRestConfig implements RepositoryRestConfigurer {
 
-	private String theAllowedOrigins = "http://localhost:8090";
+	private String theAllowedOrigins = "https://localhost:3000";
 
 	@Override
 	public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config, CorsRegistry cors) {
-		HttpMethod[] theUnsupportedActions = { HttpMethod.POST, HttpMethod.PATCH, HttpMethod.DELETE, HttpMethod.PUT };
+		HttpMethod[] theUnsupportedActions = { HttpMethod.POST, 
+																					HttpMethod.PATCH,
+																					HttpMethod.DELETE, 
+																					HttpMethod.PUT };
 
 		config.exposeIdsFor(Book.class);
 		config.exposeIdsFor(Review.class);
 		config.exposeIdsFor(Message.class);
-//		config.exposeIdsFor(Checkout.class);
 
 		disableHttpMethods(Book.class, config, theUnsupportedActions);
 		disableHttpMethods(Review.class, config, theUnsupportedActions);
 		disableHttpMethods(Message.class, config, theUnsupportedActions);
-//		disableHttpMethods(Checkout.class, config, theUnsupportedActions);
 
 		/* Configure CORS Mapping */
 		cors.addMapping(config.getBasePath() + "/**").allowedOrigins(theAllowedOrigins);

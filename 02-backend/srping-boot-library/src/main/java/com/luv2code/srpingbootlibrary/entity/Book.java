@@ -102,7 +102,6 @@ public class Book {
 
 	public Book(Long id, String title, String author, String description, int copies, int copiesAvailable,
 			String category, String img) {
-		super();
 		this.id = id;
 		this.title = title;
 		this.author = author;
